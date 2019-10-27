@@ -1,0 +1,37 @@
+
+{% extends "base_generic.html" %}
+{% block content %}
+    <!--Display club specific service project-->
+      <div class="container service-block">
+        <h2>Service Projects</h2>
+        <p>For Dynamic Club Name</p>
+      </div>
+      <!--This kind of UI may be better for mobile-->
+      <div class="container">
+        <div class="row">
+        <!--<div class="card-deck">-->
+            {% for service_project in service_project_list %}
+            <div class="col-md-4 service-details">
+            <div class="card h-100">
+                <div class="card-body">
+                {% if service_project_list %}
+                <h5 class="card-title">{{ service_project.project_title }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{ service_project.project_leader }}</h6>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <p>Project Date: {{ service_project.project_date }}</p>
+                <ul>
+                    <li>{{ service_project.members_needed }} workers needed</li>
+                    <li>{{ service_project.wait_list }} wait list spots available</li>
+                </ul>
+                {% endif %}
+                </div>
+                <div class="card-footer">
+                <button class="btn btn-sm align-middle btn-blue font-b" type="button">Sign Up</button>
+                </div>
+            </div>
+            </div>
+            {% endfor %}
+        <!--</div>-->
+        </div>
+    </div>
+{% endblock %}

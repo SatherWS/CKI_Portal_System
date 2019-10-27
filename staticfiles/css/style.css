@@ -1,0 +1,52 @@
+
+/* top nav code */
+h4.brand {
+    font-family: 'Kaushan Script', cursive;
+    color: #fff;
+    font-size: 20pt!important;
+    cursor: pointer;
+}
+.colors {
+    background: #132e4b;
+    color: #fff;
+}
+.colors2 {
+    background: #355677;
+}
+
+button.btn a {
+    /* Note this button's <a> element is really small
+    and anoying to click on, fix that later
+    */
+    color: #fff;
+    text-decoration: none; 
+}
+.nav-item {
+    color:#fff!important;
+}
+.nav-item:hover {
+    color:#fff;
+    border-bottom: solid #fff 1px;
+    margin-bottom: -1px;
+}
+.font-b {
+    font-size: 12pt!important;
+}
+/* Landing Page */
+.flex-center h1 {
+    background-image: url('../img/stockton-cki.jpg'); 
+    width: 170px; 
+    height: 170px;
+}
+/* sign up form links*/
+.flex-center a {
+    color: #fff;
+    text-decoration: none; 
+}
+/* Service Projects Section */
+.service-block {
+    margin-top: 2rem;
+}
+.service-details {
+    margin-top: 2rem;
+}

@@ -1,0 +1,100 @@
+/* NAV SECTION
+icon overrides*/
+.fa-navicon:before, .fa-reorder:before, .fa-bars:before {
+	content: "\f0c9";
+	padding-right: 1rem;
+    font-size: 15pt;
+}
+.fa-home:before {
+	padding-right: 1rem;
+    font-size: 15pt;
+}
+.fa-edit:before, .fa-pencil-square-o:before {
+    content: "\f044";
+    padding-right: 1rem;
+    font-size: 15pt;
+}
+.fa-bar-chart-o:before, .fa-bar-chart:before {
+    content: "\f080";
+    padding-right: 1rem;
+    font-size: 15pt;
+}
+.fa-handshake:before {
+    content: "\f2b5";
+    padding-right: 1rem;
+    font-size: 15pt;
+}
+.fa-heartbeat:before {
+    content: "\f21e";
+    padding-right: 1rem;
+    font-size: 15pt;
+}
+.fa-group:before, .fa-users:before {
+	content: "\f0c0";
+	padding-right: 1rem;
+    font-size: 15pt;
+}
+.fa-envelope-o:before {
+	content: "\f003";
+	padding-right: 1rem;
+    font-size: 15pt;
+}
+.fa-arrow-circle-left:before {
+    content: "\f0a8";
+	padding-right: 1rem;
+    font-size: 15pt;
+}
+.fa-user-plus:before {
+	content: "\f234";
+	padding-right: 1rem;
+    font-size: 15pt;
+}
+/* nav choices section*********/ 
+.nav-list {
+    position: fixed;
+	transition: 0.5s;
+	height: 0;
+    width: 300px;
+    z-index: 1;
+    overflow-x: hidden; 
+    background: #1d4672;
+    background-image: 
+    linear-gradient(
+        rgb(43, 66, 90),
+        rgb(10, 34, 56)
+    );
+}
+.nav-contents {
+    padding-left:1rem;
+}
+.side {
+    padding: 1rem 2rem;
+}
+.username {
+    padding-left: 1rem;
+}
+.nav-list ul {
+    z-index: 1;
+    
+	list-style: none;
+    color: #fff;
+    margin-top:1rem;
+    padding-left: 0;
+}
+.nav-item a {
+	text-decoration: none;
+	display: block;
+    padding: .5rem .5rem .5rem 1rem;
+    color: #fff;
+    
+}
+
+
+.nav-item {
+    font-size: 12pt;
+    
+}
+
+/* Nav collapse */
+
+/*end nav css=====================*/

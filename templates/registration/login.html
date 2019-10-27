@@ -1,0 +1,33 @@
+{% extends "base_generic.html" %}
+{% block content %}
+<h3>Log In Form</h3>
+    {% if form.errors %}
+    <p>The username or password doen't match with any existing accounts.</p>
+    {% endif %}
+
+    {% if next %}
+        {% if user.is_authenticated %}
+        <p>Your account doesn't have access to this page. To proceed,
+            please login with an account that has access.</p>
+        {% else %}
+        <p>Please log in to see this page.</p>
+        {% endif %}
+    {% endif %}
+    <form method="post" action="{% url 'login' %}">
+      {% csrf_token %}
+      {{ form.username.label_tag }}
+      <br>
+      {{ form.username }}
+      <br>
+      {{ form.password.label_tag }}
+      <br>
+      {{ form.password }}
+      <br>
+      <input type="submit" value="login" />
+      <input type="hidden" name="next" value="{{ next }}" />
+    </form>
+        {# Assumes you setup the password_reset view in your URLconf #}
+        <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
+        <p><a href="{% url 'signup' %}">Don't have an account? Create one here.</a></p>
+        
+    {% endblock %}
