@@ -10,6 +10,7 @@ With this software members of Circle K International can an create account, sign
 2. Run script manage.py
 3. Search in web browser 127.0.0.1:8000
 
+## Screenshots of the Project
 Image 1
 Users sign up through GUI and are added to users table of the database as shown in image below. 
 
