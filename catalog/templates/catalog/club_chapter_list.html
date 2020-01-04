@@ -1,0 +1,33 @@
+{% extends "base_generic.html" %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <h2 class="clubs-intro">
+    CKI College Chapters
+    </h2>
+    <div class="table-responsive">
+      <table id="dtBasicExample" class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">University</th>
+            <th scope="col">Total Members</th>
+            <th scope="col">Total Service Hours</th>
+            <th scope="col">Total Donations Raised</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for club in clubs %}
+          <tr>
+            <th scope="row">{{ forloop.counter0 }}</th>
+            <td>{{club.school_name}}</td>
+            <td>{{club.total_users}}</td>
+            <td>{{club.total_hrs.normalize}}</td>
+            <td>Section in Progress</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

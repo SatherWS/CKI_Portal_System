@@ -39,10 +39,14 @@ icon overrides*/
 	padding-right: 1rem;
     font-size: 15pt;
 }
-.fa-arrow-circle-left:before {
-    content: "\f0a8";
-	padding-right: 1rem;
+.fa-angle-up:before {
+    content: "\f106";
+    padding-right: 1rem;
     font-size: 15pt;
+}
+.fa-times-circle:before {
+    content: "\f057";
+    padding-right: 1rem;
 }
 .fa-user-plus:before {
 	content: "\f234";
@@ -51,7 +55,10 @@ icon overrides*/
 }
 /* nav choices section*********/ 
 .fa-bars:hover {
-    color:#5e8fbf;
+    color:#1976d2;
+}
+.fa-times-circle:hover {
+    color:red;
 }
 .nav-list {
     position: fixed;
@@ -96,8 +103,21 @@ icon overrides*/
     border-bottom-left-radius: 1.6rem;
 }
 .nav-item2:hover {
-    background: #5e8fbf;
+    background: #1976d2;
 }
 
-/* Nav collapse */
-
+/* Dashboard ************************************/
+.nav-list2 {
+    position: fixed;
+	transition: 0.5s;
+	height: 100%;
+    width: 300px;
+    z-index: 1;
+    overflow-x: hidden; 
+    background: #1d4672;
+    background-image: 
+    linear-gradient(
+        rgb(43, 66, 90),
+        rgb(10, 34, 56)
+    );
+}

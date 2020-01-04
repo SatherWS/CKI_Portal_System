@@ -1,0 +1,6 @@
+{% extends "base_generic.html" %}
+{% block content %}
+{% for club in clubs %}
+    <h1>{{club.school_name}} {{ club.total_users }}</h1>
+{% endfor %}
+{% endblock %}

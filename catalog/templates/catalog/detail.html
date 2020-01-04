@@ -1,0 +1,39 @@
+{% extends "base_generic.html" %}
+{% load static %}
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <h1>Thanks for Volunteering!</h1>
+      <h3>{{service_project.project_title}} Project Participants</h3>
+      {% for i in extra %}
+        {% if extra and service_project.project_ID == i.project_id %}
+        <ul class="list-group">
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            {{ i.user.first_name }} {{ i.user.last_name }} 
+            <span class="badge badge-primary badge-pill">Registered: {{i.time_registered}}</span>
+          </li>
+        </ul>
+        {% endif %}
+      {% endfor %}
+      <div class="row project-btns">
+        <div class="col-md-6">
+          <a href="{% url 'catalog:service_project' %}">
+          <input class="btn btn-sm align-middle btn-blue font-b" 
+          type="submit" value="Sign up for projects"></input>
+          </a>
+        </div>
+        <div class="col-md-6 text-right">
+          <form method="post" novalidate action="{% url 'catalog:project_remove_worker' service_project.project_ID %}">
+            {% csrf_token %}
+            <input class="btn btn-sm align-middle btn-red font-b" 
+            type="submit" value="Quit Project"></input>
+          </form>
+        </div>
+      </div>   
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>
+{% endblock %}

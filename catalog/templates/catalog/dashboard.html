@@ -1,0 +1,87 @@
+{% extends "base_generic.html" %}
+{% load static %}
+{% block content %}
+<!--Dashboard tabs test-->
+<div class="container spacing">
+     <!-- Heading -->
+     
+    <div class="card mb-4 wow fadeIn">
+    <header class="bg-style">
+        <!--Card content-->
+        <div class="card-body d-sm-flex justify-content-between">
+          <div class="mb-2 mb-sm-0 pt-1">
+            <h4>Hello Colin Sather</h4>
+            <h5>CKI Chapter: Stockton University</h5>
+            <h5>Join Date: 11/15/2019</h5>
+          </div>
+          <div class="mb-2 mb-sm-0 pt-1 text-right side-data">
+            <h5>1200.25 <br>Service Hours</h5>
+            <h5>$250.00 <br>Charity Revenue</h5>                        
+          </div>
+        </div>
+    </header>
+    </div>
+    <!-- Heading -->
+
+    <!-- Charts -->
+    <div class="row">
+        <div class="col-md-8">
+          <div class="card mb-4 wow fadeIn">
+            <canvas id="myChart" style="max-width: 500px;"></canvas>
+          </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card mb-4 wow fadeIn">
+                <canvas id="pieChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Activitity Tabs -->
+    <div class="card activities">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
+                aria-selected="true">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+                aria-selected="false">Profile</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="messages-tab" data-toggle="tab" href="#messages" role="tab" aria-controls="messages"
+                aria-selected="false">Messages</a>
+            </li>
+        </ul>
+            
+        <div class="tab-content">
+            <div class="tab-pane active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                <ul class="list-group list-group-flush">
+                <li class="list-group-item">Cras justo odio</li>
+                <li class="list-group-item">Dapibus ac facilisis in</li>
+                <li class="list-group-item">Morbi leo risus</li>
+                <li class="list-group-item">Porta ac consectetur ac</li>
+                <li class="list-group-item">Vestibulum at eros</li>
+                </ul>
+            </div>
+            <div class="tab-pane" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+                <ul class="list-group list-group-flush">
+                <li class="list-group-item">Cras justo odio</li>
+                <li class="list-group-item">Dapibus ac facilisis in</li>
+                <li class="list-group-item">Morbi leo risus</li>
+                </ul>
+            </div>
+            <div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="messages-tab">
+                <ul class="list-group list-group-flush">
+                <li class="list-group-item">Cras justo odio</li>
+                <li class="list-group-item">Dapibus ac facilisis in</li>
+                <li class="list-group-item">Porta ac consectetur ac</li>
+                <li class="list-group-item">Vestibulum at eros</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

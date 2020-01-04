@@ -23,32 +23,33 @@
 </head>
 <body>
   {% block sidenav %}
-  <!--Side nav for logged in users-->
   <nav id="menu" class="nav-list">
       <h4 class="brand side">
-        <i class="fa fa-bars" onclick="show()"></i>  
+        <i class="far fa-times-circle" onclick="show()"></i>
         CKI University
       </h4>
       <div class="nav-contents">
+        <!--Move this content to dashboard-->
         <ul>
           {% if user.is_authenticated %}
           <li class="username">
-            <p>Hello {{User.first_name}}</p>
+            <p>Hello {{user.first_name}} {{user.last_name}}</p>
+            <p>{{totals}}</p>
           </li>
           {% endif %}
         </ul>  
         <ul>
           <li class="nav-item2">
-            <a href="{% url 'service_project' %}">
-                <i class="far fa-handshake"></i>
+            <a href="{% url 'catalog:dashboard' %}">
+              <i class="fa fa-bar-chart"></i>
+              My Dashboard
+            </a>
+        </li>
+          <li class="nav-item2">
+            <a href="{% url 'catalog:service_project' %}">
+                <i class="fa fa-users"></i>
                 Service Projects
             </a>
-            </li>
-            <li class="nav-item2">
-                <a href="#board">
-                  <i class="fa fa-users"></i>
-                  View Social Events
-                </a>
             </li>
             <li class="nav-item2">
                 <a href="#board">
@@ -63,52 +64,47 @@
               </a>
             </li>
             <li class="nav-item2">
-                <a href="vote-caster/index.html">
-                  <i class="fa fa-bar-chart"></i>
-                  User Statistics
-                </a>
-            </li>
-            <li class="nav-item2">
                 <a onclick="show()">
-                    <i class="fa fa-arrow-circle-left"></i>
+                  <i class="fas fa-angle-up"></i>
                     Minimize Menu
                 </a>
             </li>
         </ul> 
-      </div>
-    </nav>
+    </div>
+  </nav>
   {% endblock %}
 
-  <!--Main Nav-->
   {% block topnav %}
   <nav class="navbar navbar-dark colors">
     <h4 class="brand">
       <i class="fa fa-bars" onclick="show()"></i>
-      <a style="color:inherit;" href="{% url 'index' %}">CKI University</a>
+      <a style="color:inherit;" href="{% url 'catalog:index' %}">CKI University</a>
     </h4>
     <form class="form-inline">
       <ul class="nav text-center">
         <li class="nav-item">
-          <a href="{% url 'index' %}">About</a>
+          <a href="{% url 'catalog:index' %}">About</a>
         </li>
         <li class="nav-item">
-          <a href="{% url 'service_project' %}">Fundraisers</a>
+          <!--
+          <a href="">Donation Drives</a>
+          -->
         </li>
         <li class="nav-item">
-          <a href="{% url 'clubs' %}" class="nav-link main">Find a Club</a>
+          <a href="{% url 'catalog:clubs' %}" class="nav-link main">CKI Database</a>
         </li>
         <li class="nav-item">
           <a href="" class="nav-link main">Support</a>
         </li>
       </ul>
     {% if user.is_authenticated %}
-        <button class="btn btn-md align-middle btn-outline-white font-b" type="button">
-          <a href="{% url 'logout' %}?next={{request.path}}">log out</a>
-        </button>     
+      <button class="btn btn-md align-middle btn-outline-white font-b" type="button">
+        <a href="{% url 'logout' %}?next={{request.path}}">log out</a>
+      </button>     
     {% else %}
-        <button class="btn btn-md align-middle btn-outline-white font-b" type="button">
-          <a href="{% url 'login' %}?next={{request.path}}">log in</a>
-        </button>
+      <button class="btn btn-md align-middle btn-outline-white font-b" type="button">
+        <a href="{% url 'login' %}?next={{request.path}}">log in</a>
+      </button>
     {% endif %}
     </form>
   </nav>
@@ -118,10 +114,9 @@
   <div class="container-fluid">
     {% block tempnav %}
     <div class="tmp-nav">
-      <a href="{% url 'index' %}">Home</a>  
-      <a href="{% url 'service_project' %}">Service Projects</a>
-      <a href="">Upcoming Events</a>
-      <a href="{% url 'signup' %}">Sign Up</a> 
+      <a href="{% url 'catalog:index' %}">Home</a>  
+      <a href="{% url 'catalog:service_project' %}">Service Projects</a>
+      <a href="{% url 'catalog:signup' %}">Sign Up</a> 
       {% if user.is_authenticated %}
         <a href="{% url 'logout' %}?next={{request.path}}">Logout</a>     
         <p>User: {{ user.get_username }}</p>
@@ -130,13 +125,13 @@
       {% endif %}
     </div>  
     {% endblock %}
+    <!-- End Temp Nav-->
 
-    <!-- Content to later overwrite -->
+    <!-- Content to overwrite -->
     {% block content %}{% endblock %}
   </div>
-  <!-- SCRIPTS -->
-  <!--{% load static %}-->
 
+  <!-- SCRIPTS -->
   <script type="text/javascript" src="{% static 'js/sidenav-toggle.js' %}"></script>
   <!-- JQuery -->
   <script type="text/javascript" src="{% static 'js/jquery-3.4.1.min.js' %}"></script>
@@ -148,10 +143,102 @@
   <script type="text/javascript" src="{% static 'js/mdb.min.js' %}"></script>
   <!-- MDBootstrap Datatables  -->
   <script type="text/javascript" src="{% static 'js/addons/datatables.min.js' %}"></script>
+  
+  <!-- Used in club_chapter_list.html -->
   <script>
     $(document).ready(function () {
       $('#dtBasicExample').DataTable();
       $('.dataTables_length').addClass('bs-select');
+    });
+  </script>
+
+
+
+<!-- Tabs Script -->
+<script>
+  $(function () {
+      $('#myTab li:last-child a').tab('show')
+  })
+</script>
+
+<!-- Line Graph Script -->
+<script>
+  var ctx = document.getElementById("myChart").getContext('2d');
+  var myChart = new Chart(ctx, {
+  type: 'line',
+  data: {
+  labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+  datasets: [{
+  label: '# of Votes',
+  data: [12, 19, 3, 5, 2, 3],
+  backgroundColor: [
+  'rgba(255, 99, 132, 0.2)',
+  'rgba(54, 162, 235, 0.2)',
+  'rgba(255, 206, 86, 0.2)',
+  'rgba(75, 192, 192, 0.2)',
+  'rgba(153, 102, 255, 0.2)',
+  'rgba(255, 159, 64, 0.2)'
+  ],
+  borderColor: [
+  'rgba(255,99,132,1)',
+  'rgba(54, 162, 235, 1)',
+  'rgba(255, 206, 86, 1)',
+  'rgba(75, 192, 192, 1)',
+  'rgba(153, 102, 255, 1)',
+  'rgba(255, 159, 64, 1)'
+  ],
+  borderWidth: 1
+  }]
+  },
+  options: {
+  scales: {
+  yAxes: [{
+  ticks: {
+  beginAtZero: true
+  }
+  }]
+  }
+  }
+  });
+</script>
+<!-- Pie Chart Script -->
+<script>
+    var ctx = document.getElementById("pieChart").getContext('2d');
+    var myChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+    labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+    datasets: [{
+    label: '# of Votes',
+    data: [12, 19, 3, 5, 2, 3],
+    backgroundColor: [
+    'rgba(255, 99, 132, 0.2)',
+    'rgba(54, 162, 235, 0.2)',
+    'rgba(255, 206, 86, 0.2)',
+    'rgba(75, 192, 192, 0.2)',
+    'rgba(153, 102, 255, 0.2)',
+    'rgba(255, 159, 64, 0.2)'
+    ],
+    borderColor: [
+    'rgba(255,99,132,1)',
+    'rgba(54, 162, 235, 1)',
+    'rgba(255, 206, 86, 1)',
+    'rgba(75, 192, 192, 1)',
+    'rgba(153, 102, 255, 1)',
+    'rgba(255, 159, 64, 1)'
+    ],
+    borderWidth: 1
+    }]
+    },
+    options: {
+    scales: {
+    yAxes: [{
+    ticks: {
+    beginAtZero: true
+    }
+    }]
+    }
+    }
     });
   </script>
 </body>

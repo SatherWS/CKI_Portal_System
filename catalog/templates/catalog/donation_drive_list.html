@@ -1,0 +1,27 @@
+{% extends "base_generic.html" %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <h2 class="clubs-intro">
+    CKI Donation Drives
+    </h2>
+    <div class="table-responsive">
+      <table id="dtBasicExample" class="table">
+        <thead>
+          <tr>
+            <th class="rmv" scope="col">University</th>
+            <th class="text-right" scope="col">Donation Drive Goal</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for donation_drive in donation_drive_list %}
+           <tr>
+             <td><a href="{% url 'catalog:donation' donation_drive.id %}">{{donation_drive.chapter}}</a></td>
+             <td class="text-right">${{donation_drive.goal}}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

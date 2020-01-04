@@ -1,3 +1,7 @@
 from django.test import TestCase
+from catalog.models import Service_Project,User,Club_Chapter
 
-# Create your tests here.
+class UserTestCase(testcase):
+# Create your tests here
+    print('test')
+    

@@ -29,16 +29,14 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-
 INSTALLED_APPS = [
+    'catalog.apps.CatalogConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # CKI Catalog App
-    'catalog',
 ]
 
 MIDDLEWARE = [
@@ -127,3 +125,16 @@ AUTH_USER_MODEL = 'catalog.User'
 
 # Redirect to home URL after login (Default redirects to /accounts/profile/)
 LOGIN_REDIRECT_URL = '/'
+
+"""
+- Add some settings for BrainTree Payments-
+
+Log in to your sandbox account and get your API keys plus your merchant ID.
+
+BRAINTREE_PRODUCTION = False  # We'll need this later to switch between the sandbox and live account
+BRAINTREE_MERCHANT_ID = “your_merchant_id”
+BRAINTREE_PUBLIC_KEY = “your_public_key”
+BRAINTREE_PRIVATE_KEY = “your_private_key”
+
+
+"""

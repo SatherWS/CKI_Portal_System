@@ -1,0 +1,11 @@
+{% extends 'base_generic.html' %}
+{% block content %}
+<header class="text-center">
+    <h1>{{donation_drive.chapter}}'s Donation Drive</h1>
+    <p>{{donation_drive.description}}</p>
+</header>
+<!-- https://blog.bitlabstudio.com/a-guide-for-using-braintree-in-django-53e99d677f71
+Above link to be used for payments
+-->
+<script src="https://js.braintreegateway.com/web/dropin/1.20.4/js/dropin.min.js"></script>
+{% endblock %}

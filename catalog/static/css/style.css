@@ -10,9 +10,6 @@ h4.brand {
     background: #132e4b;
     color: #fff;
 }
-.colors2 {
-    background: #355677;
-}
 
 button.btn a {
     /* Note this button's <a> element is really small
@@ -44,15 +41,52 @@ button.btn a {
     color: #fff;
     text-decoration: none; 
 }
-/* Service Projects Section */
-.service-block {
-    margin-top: 2rem;
+.colors2 {
+    background:#1976d2;
 }
+/* Service Projects Section */
 .service-details {
     margin-top: 2rem;
 }
-
+#project {
+    padding-bottom: 2rem;
+}
+/* Service Project Results */
+.list-group {
+    margin-top: 0.5rem!important;
+}
+.project-btns {
+    margin-top: 0.5rem;
+}
+.project-btns .col-md-6 {
+    padding-left: 7px;
+    padding-right: 7px;
+}
 /* Chapter Search Section */
 .clubs-intro {
-    padding-top: 2.5rem;
+    padding: 1rem 0;
+    text-align: center;
 }
+
+/* Donation Drive Styles ***/
+.dataTable > thead > tr > th[class*="sort"]:after{
+    content: "" !important;
+}
+.dataTable > thead > tr > th[class*="sort"]:before{
+    content: "" !important;
+}
+/**** DASHBOARD ****/
+.spacing {
+    padding: 3rem 6rem;
+}
+.bg-style {
+    background: linear-gradient(90deg, #FFF 65%, #1976d2 35%);
+    border-radius: .25rem;
+}
+.side-data {
+    color: #fff;
+}
+.card.activities {
+    padding: 1rem;
+    background: #1976d2;
+} 
