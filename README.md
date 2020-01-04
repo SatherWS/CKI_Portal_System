@@ -33,5 +33,6 @@ Once signed up for a project the user is added to the associative entity 'Worker
 
 Image 5
 In the below image we can confirm that the current user 'Test User' has been added to the associative entity relate to 'Project 1' of the club 'Stockton University'.
+
 ![workers](https://github.com/SatherWS/CKI_Portal_System/blob/master/database_imgs/workers_table.PNG)
 
