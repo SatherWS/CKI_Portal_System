@@ -11,7 +11,7 @@ icon overrides*/
 }
 .fa-edit:before, .fa-pencil-square-o:before {
     content: "\f044";
-    padding-right: 1rem;
+    padding-right: .95rem;
     font-size: 15pt;
 }
 .fa-bar-chart-o:before, .fa-bar-chart:before {
@@ -31,7 +31,7 @@ icon overrides*/
 }
 .fa-group:before, .fa-users:before {
 	content: "\f0c0";
-	padding-right: 1rem;
+	padding-right: 0.8rem;
     font-size: 15pt;
 }
 .fa-envelope-o:before {

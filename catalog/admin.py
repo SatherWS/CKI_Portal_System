@@ -29,17 +29,20 @@ class UserAdmin(DjangoUserAdmin):
 # Register Club Chapters
 class AvailableClubs(admin.ModelAdmin):
     list_display = ('club_id', 'school_name', 'state')
-admin.site.register(Club_Chapter, AvailableClubs)
+
 
 # Register Service Projects.
 class projectsAdmin(admin.ModelAdmin):
     list_display = ('project_title', 'club_chapter','project_leader',
     'datetime_start','datetime_end', 'project_location','project_ID')
-admin.site.register(Service_Project, projectsAdmin)
+
 
 # Register service projects associative model
 class WorkOrders(admin.ModelAdmin):
     list_display = ('project','user', 'chapter','service_hrs','time_registered')
+
+admin.site.register(Club_Chapter, AvailableClubs)
+admin.site.register(Service_Project, projectsAdmin)
 admin.site.register(ProjectRegistration, WorkOrders)
 
 # Register donation drive associative model

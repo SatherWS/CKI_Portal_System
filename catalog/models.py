@@ -58,7 +58,7 @@ class User(AbstractUser):
     chapter = models.ForeignKey('Club_Chapter',on_delete=models.PROTECT)
     ranking = models.CharField(default='member', max_length=20)
     
-    # may not use total hours and dollars fields
+    # may not use total hours and dollars fields DELETE TOTAL FIELDS W/O BREAKING SITE
     total_service_hours = models.DecimalField(default=0, max_digits=10, decimal_places=2)
     total_dollars_raised = models.DecimalField(default=0, max_digits=10, decimal_places=2)
     REQUIRED_FIELDS = []
@@ -106,7 +106,7 @@ class Service_Project(models.Model):
     def get_registrations(self):
         return ProjectRegistration.objects.filter(project = self)
 
-# Associative Model where project sign up data is stored
+# Associative model where project sign up data is stored
 class ProjectRegistration(models.Model):
     project = models.ForeignKey(Service_Project, verbose_name='Project',on_delete=models.PROTECT)
     user = models.ForeignKey(User, verbose_name='Worker',on_delete=models.CASCADE)
